@@ -2,9 +2,11 @@ package com.gestion.achat.serviceimpl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gestion.achat.entity.Stock;
+import com.gestion.achat.repository.StockRepository;
 import com.gestion.achat.service.StockService;
 
 
@@ -12,35 +14,38 @@ import com.gestion.achat.service.StockService;
 public class StockServiceImpl implements StockService{
 	
 	
+	@Autowired
+	private StockRepository stockRepository;
+	
 
 	@Override
 	public List<Stock> retrieveAllStock() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Stock> listStocks = stockRepository.findAll();
+		return listStocks;
 	}
 
 	@Override
 	public Stock addStockd(Stock s) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return stockRepository.save(s);
 	}
 
 	@Override
 	public void deleteStock(Long id) {
-		// TODO Auto-generated method stub
-		
+		Stock s = stockRepository.findById(id).orElse(null);
+		stockRepository.delete(s);
 	}
 
 	@Override
 	public Stock updateStock(Stock s) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return stockRepository.save(s);
 	}
 
 	@Override
 	public Stock retrieveStock(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Stock s = stockRepository.findById(id).orElse(null);
+		return s;
 	}
 
 }
