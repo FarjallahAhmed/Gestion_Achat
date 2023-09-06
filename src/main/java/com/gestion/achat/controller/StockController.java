@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gestion.achat.service.StockService;
+
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+
 import com.gestion.achat.entity.Stock;
 @RestController
 public class StockController {
@@ -19,6 +23,7 @@ public class StockController {
 	
 	
 	@GetMapping("/retrieve-all-stocks")
+	@ApiResponse(description = "return the stock list from the database")
 	public List<Stock> getStocks(){
 		
 		return stockService.retrieveAllStock();
