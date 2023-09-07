@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.gestion.achat.service.StockService;
 
-import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 
 import com.gestion.achat.entity.Stock;

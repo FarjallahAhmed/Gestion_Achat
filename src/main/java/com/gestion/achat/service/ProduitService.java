@@ -6,7 +6,7 @@ import com.gestion.achat.entity.Produit;
 
 public interface ProduitService {
 
-	List<Produit> retrieveALLProduits();
+	List<Produit> retrieveAllProduits();
 	Produit addProduit(Produit p, Long idCategorieProduit, Long idStock);
 	Produit updateProduit(Produit p, Long idCategorieProduit, Long idStock);
 	Produit retrieveProduit(Long id);
