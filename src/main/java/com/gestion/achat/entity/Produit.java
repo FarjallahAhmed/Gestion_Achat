@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -54,9 +56,11 @@ public class Produit implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name = "stockId")
+	@JsonBackReference
 	private Stock stock;
 	
 	@ManyToOne
 	@JoinColumn(name = "categorieId")
+	@JsonBackReference
 	private CategorieProduit categorieProduit;
 }

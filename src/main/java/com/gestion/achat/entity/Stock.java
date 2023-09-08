@@ -3,6 +3,8 @@ package com.gestion.achat.entity;
 import java.io.Serializable;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -41,5 +43,6 @@ public class Stock implements Serializable {
 	private String libelleStock;
 	
 	@OneToMany(mappedBy = "stock")
+	@JsonManagedReference
 	private Set<Produit> produits;
 }
