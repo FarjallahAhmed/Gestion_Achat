@@ -2,37 +2,53 @@ package com.gestion.achat.serviceimpl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.gestion.achat.entity.DetailFournisseur;
 import com.gestion.achat.entity.Fournisseur;
+import com.gestion.achat.repository.DetailFournisseurRepository;
+import com.gestion.achat.repository.FournisseurRepository;
 import com.gestion.achat.service.FournisseurService;
 
 
 @Service
 public class FournisseurServiceImpl implements FournisseurService {
+	
+	
+	@Autowired
+	FournisseurRepository fournisseurRepository;
+	
+	@Autowired
+	DetailFournisseurRepository detailFournisseurRepository;
+	
 
 	@Override
 	public List<Fournisseur> retrieveAllFournisseurs() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return fournisseurRepository.findAll();
 	}
 
 	@Override
 	public Fournisseur addFournisseur(Fournisseur f) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		DetailFournisseur detailFournisseur = f.getDetailFournisseur();
+		
+		detailFournisseurRepository.save(detailFournisseur);
+		
+		return fournisseurRepository.save(f);
 	}
 
 	@Override
 	public Fournisseur updateFournisseur(Fournisseur f) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return fournisseurRepository.save(f);
 	}
 
 	@Override
 	public Fournisseur retrieveFournisseur(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return fournisseurRepository.findById(id).orElse(null);
 	}
 
 }
