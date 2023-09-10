@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.gestion.achat.entity.Fournisseur;
 import com.gestion.achat.service.FournisseurService;
 
-import jakarta.websocket.server.PathParam;
+
 
 @RestController
 public class FournisseurController {
@@ -41,7 +42,7 @@ public class FournisseurController {
 	}
 	
 	@GetMapping("get-fournisseur/{id}")
-	public Fournisseur getFournisseur(@PathParam("id") Long id) {
+	public Fournisseur getFournisseur(@PathVariable("id") Long id) {
 		
 		return fournisseurService.retrieveFournisseur(id);
 	}

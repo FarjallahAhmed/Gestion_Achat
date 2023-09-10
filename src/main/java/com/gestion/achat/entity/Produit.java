@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -52,15 +53,16 @@ public class Produit implements Serializable{
 	
 	
 	@OneToMany(mappedBy = "produit")
+	@JsonManagedReference("produit-detailF")
 	private Set<DetailFacture> detailFactures;
 	
 	@ManyToOne
 	@JoinColumn(name = "stockId")
-	@JsonBackReference
+	@JsonBackReference("stock-produit")
 	private Stock stock;
 	
 	@ManyToOne
 	@JoinColumn(name = "categorieId")
-	@JsonBackReference
+	@JsonBackReference("categorieP-produit")
 	private CategorieProduit categorieProduit;
 }

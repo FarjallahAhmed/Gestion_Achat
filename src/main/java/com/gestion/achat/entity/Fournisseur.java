@@ -3,6 +3,9 @@ package com.gestion.achat.entity;
 import java.io.Serializable;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -43,9 +46,11 @@ public class Fournisseur implements Serializable{
 	private CategorieFournisseur categorieFournisseur;
 	
 	@OneToMany(mappedBy = "fournisseur")
+	@JsonManagedReference("fourenisseur-facture")
 	private Set<Facture> factures;
 	
 	@OneToOne
+	@JsonBackReference("detailF-fournisseur")
 	private DetailFournisseur detailFournisseur;
 	
 	@ManyToMany

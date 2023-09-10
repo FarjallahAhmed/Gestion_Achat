@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -53,13 +56,16 @@ public class Facture implements Serializable{
 	
 	
 	@OneToMany(mappedBy="facture")
+	@JsonManagedReference("facture-reglement")
 	private Set<Reglement> reglements;
 	
 	@OneToMany(mappedBy = "facture")
+	@JsonManagedReference("facture-detailF")
 	private Set<DetailFacture> detailFactures;
 	
 	@ManyToOne
 	@JoinColumn(name = "fournisseurId")
+	@JsonBackReference("fourenisseur-facture")
 	private Fournisseur fournisseur;
 	
 	

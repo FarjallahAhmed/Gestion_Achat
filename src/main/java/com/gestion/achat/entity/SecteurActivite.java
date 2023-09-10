@@ -3,6 +3,7 @@ package com.gestion.achat.entity;
 import java.io.Serializable;
 import java.util.Set;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

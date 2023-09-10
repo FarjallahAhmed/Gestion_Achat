@@ -40,7 +40,7 @@ public class CategorieProduit implements Serializable{
 	private String libelleCategorieProduit;
 	
 	@OneToMany(mappedBy = "categorieProduit")
-	@JsonManagedReference
+	@JsonManagedReference("categorieP-produit")
 	private Set<Produit> produits;
 	
 	

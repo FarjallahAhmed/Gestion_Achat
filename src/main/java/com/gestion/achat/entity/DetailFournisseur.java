@@ -3,6 +3,8 @@ package com.gestion.achat.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -41,6 +43,7 @@ public class DetailFournisseur implements Serializable{
 	private String matricule;
 	
 	@OneToOne(mappedBy = "detailFournisseur")
+	@JsonManagedReference("detailF-fournisseur")
 	private Fournisseur fournisseur;
 	
 	

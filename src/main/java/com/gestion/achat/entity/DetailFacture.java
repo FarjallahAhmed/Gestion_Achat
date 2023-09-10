@@ -2,6 +2,8 @@ package com.gestion.achat.entity;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -47,10 +49,12 @@ public class DetailFacture implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name = "factureId")
+	@JsonBackReference("facture-detailF")
 	private Facture facture;
 	
 	@ManyToOne
 	@JoinColumn(name = "produitId")
+	@JsonBackReference("produit-detailF")
 	private Produit produit;
 
 }
