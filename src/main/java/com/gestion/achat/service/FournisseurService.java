@@ -10,5 +10,6 @@ public interface FournisseurService {
 	Fournisseur addFournisseur(Fournisseur f);
 	Fournisseur updateFournisseur(Fournisseur f);
 	Fournisseur retrieveFournisseur(Long id);
+	void assignSecteurActiviteToFournisseur(Long fournisseurId, Long secteurActiviteId);
 
 }

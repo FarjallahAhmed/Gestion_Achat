@@ -10,6 +10,7 @@ public interface ProduitService {
 	Produit addProduit(Produit p, Long idCategorieProduit, Long idStock);
 	Produit updateProduit(Produit p, Long idCategorieProduit, Long idStock);
 	Produit retrieveProduit(Long id);
+	void assignProduitToStock(Long idProduit, Long idStock);
 	
 	
 }

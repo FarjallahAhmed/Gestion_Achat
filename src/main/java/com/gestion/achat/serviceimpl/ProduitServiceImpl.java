@@ -62,4 +62,38 @@ public class ProduitServiceImpl implements ProduitService{
 		return produitRepository.findById(id).orElse(null);
 	}
 
+	@Override
+	public void assignProduitToStock(Long idProduit, Long idStock) {
+		
+		Stock stock = stockService.retrieveStock(idStock);
+		Produit produit = produitRepository.findById(idProduit).orElse(null);
+		
+		produit.setStock(stock);
+		produitRepository.save(produit);
+		//stock.getProduits().add(produit);
+		
+		
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

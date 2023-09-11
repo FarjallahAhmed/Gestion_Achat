@@ -42,6 +42,11 @@ public class ProduitController {
 		return produitService.retrieveProduit(id);
 	}
 	
+	@PostMapping("assign-produit-to-stock")
+	public void assignProduitToStock(@RequestParam Long idProduit, @RequestParam Long idStock) {
+		produitService.assignProduitToStock(idProduit, idStock);
+	}
+	
 	
 	
 	

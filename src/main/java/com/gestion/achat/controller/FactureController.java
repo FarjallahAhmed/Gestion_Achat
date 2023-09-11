@@ -1,11 +1,14 @@
 package com.gestion.achat.controller;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gestion.achat.entity.Facture;
@@ -39,6 +42,17 @@ public class FactureController {
 		return factureService.retrieveFacture(id);
 	}
 	
+	
+	@PostMapping("asign-operateur-to-facture")
+	public void assignOperateurToFacture(@RequestParam Long idOperateur, @RequestParam Long idFacture) {
+		
+		factureService.assignOperateurToFacture(idOperateur, idFacture);
+	}
+	
+	@GetMapping("get-factures-by-fournisseur")
+	public Set<Facture> getFacturesByFournisseur(@RequestParam Long idFournisseur){
+		return factureService.getFacturesByFournisseur(idFournisseur);
+	}
 	
 	
 	
