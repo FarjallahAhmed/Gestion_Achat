@@ -1,5 +1,6 @@
 package com.gestion.achat.controller;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -60,6 +61,12 @@ public class FactureController {
 	@PostMapping("add-facture")
 	public Facture addFacture(@RequestBody Facture facture,@PathParam("IdFournisseur") Long idFournisseur) {
 		return factureService.addFacture(facture, idFournisseur);
+	}
+	
+	@GetMapping("get-pourcentage-Recouvrement")
+	public float pourcentageRecouvrement(@PathVariable("sDate") Date startDate,@PathVariable("eDate") Date endDate) {
+		
+		return factureService.pourcentageRecouvrement(startDate, endDate);
 	}
 	
 	
