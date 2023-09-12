@@ -1,5 +1,6 @@
 package com.gestion.achat.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -11,5 +12,7 @@ public interface FactureService {
 	void cancelFacture(Long id);
 	Facture retrieveFacture(Long id);
 	void assignOperateurToFacture(Long idOperateur, Long idFacture);
-	public Set<Facture> getFacturesByFournisseur(Long idFournisseur);
+	Set<Facture> getFacturesByFournisseur(Long idFournisseur);
+	Facture addFacture(Facture f, Long idFournisseur);
+	float pourcentageRecouvrement(Date startDate, Date endDate);
 }

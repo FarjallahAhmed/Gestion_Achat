@@ -42,10 +42,10 @@ public class DetailFacture implements Serializable{
 	private float prixTotal;
 	
 	@Column
-	private int pourcentageRemise;
+	private float pourcentageRemise;
 	
 	@Column
-	private int montantRemise;
+	private float montantRemise;
 	
 	@ManyToOne
 	@JoinColumn(name = "factureId")
