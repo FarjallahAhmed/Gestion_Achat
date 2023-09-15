@@ -12,8 +12,7 @@ import com.gestion.achat.entity.Facture;
 @Repository
 public interface FactureRepository extends JpaRepository<Facture, Long> {
 	
-	@Query("SELECT sum(f.montantFacture) FROM Facture f where  f.dateCreationFacture between :startDate"
-			+ " and :endDate and f.archivee=false")
+	@Query("SELECT sum(f.montantFacture) FROM Facture f where  f.dateCreationFacture between :startDate and :endDate and f.active=false")
 	float getTotalFacturesEntreDeuxDates(@Param("startDate") Date startDate, @Param("endDate") Date endDate);
 
 }
